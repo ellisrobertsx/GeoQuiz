@@ -1,0 +1,51 @@
+body {
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    color: #445361;
+    text-align: center;
+}
+
+.game-area {
+    display: flex;
+    justify-content: space-between; /* Reduce space between items */
+    align-items: center;
+    margin: 0 auto;
+    width: 40%; /* Adjust as needed */
+    position: relative;
+    top: 25%; /* Move the container down by 25% of the page height */
+}
+.flags, .locations {
+    background-size: contain; /* Ensure the image fits within the div */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 400px;
+    
+}
+.flags {
+    background-image: url("../images/scotland-flag.jpg");
+}
+.locations {
+    background-image: url("../images/eiffel-tower.jpg");
+}
+
+.flag-buttons{
+display: flex;
+flex-direction: column;
+margin-top: 370px;
+gap: 20px;
+
+}
+.flag-buttons button {
+    border: 3px solid; /* 3px wide solid border */
+    border-radius: 10px; /* 10px border radius for curved corners */
+    height: 40px;
+    width: 252px;
+    align-items: center;
+    margin: 0 auto;
+    
+    position: relative;
+    top: 25%;
+    
+}
+
