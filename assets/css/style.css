@@ -83,3 +83,40 @@ body {
     font-size: x-large;
     margin-bottom: 20px; /* Space below the header */
 }
+
+.hidden {
+    display: 
+}
+
+#options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Increase the gap between buttons */
+    width: 90%; /* Adjust the width of the container */
+    max-width: 800px; /* Max width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.option {
+    flex: 1 1 45%; /* Equal width for all buttons */
+    padding: 20px; /* Increase padding */
+    border: 2px solid #445361;
+    border-radius: 10px; /* Increase border radius */
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2em; /* Increase font size */
+}
+
+#flag-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px; /* Adjust height to fit within the viewport */
+    width: 90%;
+    max-width: 600px; /* Ensure the image fits within the device width */
+    margin-left: 2px;
+    margin-right: 2px;
+}
