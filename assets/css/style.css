@@ -18,6 +18,10 @@ body {
     margin-bottom: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
 .flags, .locations {
     display: flex;
     flex-direction: column;
@@ -37,14 +41,6 @@ body {
     max-width: 600px; /* Ensure the image fits within the device width */
     margin-left: 2px;
     margin-right: 2px;
-}
-
-.flag-image {
-    background-image: url("../images/scotland-flag.jpg");
-}
-
-.location-image {
-    background-image: url("../images/eiffel-tower.jpg");
 }
 
 .flag-buttons, .locations-buttons {
@@ -84,19 +80,24 @@ body {
     margin-bottom: 20px; /* Space below the header */
 }
 
-.hidden {
-    display: 
+.score-area {
+    margin-bottom: 20px;
 }
 
-#options-container {
+.scores {
+    margin: 5px;
+}
+
+#quiz-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#options {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px; /* Increase the gap between buttons */
-    width: 90%; /* Adjust the width of the container */
-    max-width: 800px; /* Max width of the container */
-    margin: 0 auto; /* Center the container */
+    justify-content: center;
 }
 
 .option {
@@ -110,13 +111,12 @@ body {
     font-size: 1.2em; /* Increase font size */
 }
 
-#flag-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 250px; /* Adjust height to fit within the viewport */
-    width: 90%;
-    max-width: 600px; /* Ensure the image fits within the device width */
-    margin-left: 2px;
-    margin-right: 2px;
+.flag-image {
+    /* Adjust styling for flag images */
+    background: url(../images/scotland-flag.jpg)no-repeat center center/cover;
+}
+
+.location-image {
+    /* Adjust styling for location images */
+    background: url(../images/eiffel-tower.jpg) no-repeat center center/cover;
 }
