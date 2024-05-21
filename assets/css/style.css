@@ -100,17 +100,6 @@ body {
     justify-content: center;
 }
 
-.option {
-    flex: 1 1 45%; /* Equal width for all buttons */
-    padding: 20px; /* Increase padding */
-    border: 2px solid #445361;
-    border-radius: 10px; /* Increase border radius */
-    background-color: #fff;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1.2em; /* Increase font size */
-}
-
 .flag-image {
     /* Adjust styling for flag images */
     background: url(../images/scotland-flag.jpg)no-repeat center center/cover;
@@ -120,3 +109,59 @@ body {
     /* Adjust styling for location images */
     background: url(../images/eiffel-tower.jpg) no-repeat center center/cover;
 }
+
+/* Optional: Style for the container */
+#question img{
+  height: 250px;
+  width: 90%;
+}
+
+.btn {
+    background: #fff;
+    color:#222;
+    font-weight: 500;
+    width: 90%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #222;
+    color: #fff;
+}
+
+#next-btn {
+background: #001e4d;
+color: #fff;
+font-weight: 500;
+width: 40px;
+border: 0;
+padding: 10px;
+margin: 20px auto 0;
+border-radius: 4px;
+cursor: pointer;
+display: none;
+}
+/* styles.css */
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.wrong {
+    background-color: red;
+    color: white;
+}
+
+.btn {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
