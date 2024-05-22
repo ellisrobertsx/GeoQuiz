@@ -36,17 +36,20 @@
     <div id="quiz-container" class="hidden">
         <h1>Name the flag</h1>
         <div class="stop-quiz-cont">
-        <a href="index.html" class="stop-quiz">Stop Quiz</a>
-    </div>
+            <div class="score-area hidden">
+                <p class="scores">Correct Answers <span id="score">0</span></p>
+                <p class="scores">Incorrect Answers <span id="Incorrect">0</span></p>
+            </div>
+        </div>
         <div id="question"></div>
         <div id="answer-buttons"></div>
+    </div>
+    <a href="index.html" class="stop-quiz">Stop Quiz</a>
+</div>
         <button id="next-btn">Next Question</button>
     </div>
 
-    <div class="score-area hidden">
-        <p class="scores">Correct Answers <span id="score">0</span></p>
-        <p class="scores">Incorrect Answers <span id="Incorrect">0</span></p>
-    </div>
+   
 
     <script src="assets/js/script.js"></script>
 </body>

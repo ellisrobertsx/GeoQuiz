@@ -1,12 +1,4 @@
-const imagePaths = [
-    'assets/images/flag1.jpg',
-    'assets/images/flag2.jpg',
-    'assets/images/flag3.jpg',
-    'assets/images/flag4.jpg',
-    'assets/images/flag5.jpg'
-];
-
-const questions = [
+const flagEasyQuestions = [
     {
         imagePath: 'assets/images/flag1.jpg',
         answers: [
@@ -54,24 +46,76 @@ const questions = [
     }
 ];
 
+const flagHardQuestions = [
+    {
+        imagePath: 'assets/images/flag6.jpg',
+        answers: [
+            { text: "Iceland", correct: true },
+            { text: "Norway", correct: false },
+            { text: "United Kingdom", correct: false },
+            { text: "France", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/flag7.jpg',
+        answers: [
+            { text: "Iran", correct: false },
+            { text: "Pakistan", correct: false },
+            { text: "Egypt", correct: true },
+            { text: "Turkey", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/flag8.jpg',
+        answers: [
+            { text: "Indonesia", correct: false },
+            { text: "Thailand", correct: true },
+            { text: "Vietnam", correct: false },
+            { text: "Cambodia", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/flag9.jpg',
+        answers: [
+            { text: "Argentina", correct: false },
+            { text: "Columbia", correct: false },
+            { text: "Brazil", correct: false },
+            { text: "Peru", correct: true }
+        ]
+    },
+    {
+        imagePath: 'assets/images/flag10.jpg',
+        answers: [
+            { text: "Ghana", correct: true },
+            { text: "Burkina Faso", correct: false },
+            { text: "Côte d'Ivoire,", correct: false },
+            { text: "Togo", correct: false }
+        ]
+    }
+];
+
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const quizContainer = document.getElementById("quiz-container");
 const flagEasyButton = document.querySelector(".flag-easy");
-const initialContent = document.getElementById("initial-content");
 const flagHardButton = document.querySelector(".flag-hard");
+const initialContent = document.getElementById("initial-content");
 const locationsContent = document.querySelector(".locations");
+const scoreArea = document.querySelector(".score-area");
 
 let currentQuestionIndex = 0;
+let currentQuestions = [];
 let score = 0;
+let incorrectAnswers = 0;
 
 // Event listener for flag easy button
 flagEasyButton.addEventListener("click", () => {
     initialContent.classList.add("hidden");
     locationsContent.classList.add("hidden"); // Hide locations div
     quizContainer.classList.remove("hidden");
-    startQuiz();
+    scoreArea.classList.remove("hidden");
+    startQuiz(flagEasyQuestions);
 });
 
 // Event listener for flag hard button
@@ -79,22 +123,26 @@ flagHardButton.addEventListener("click", () => {
     initialContent.classList.add("hidden");
     locationsContent.classList.add("hidden"); // Hide locations div
     quizContainer.classList.remove("hidden");
-    startQuiz();
+    scoreArea.classList.remove("hidden");
+    startQuiz(flagHardQuestions);
 });
 
 // Function to start the quiz
-function startQuiz() {
+function startQuiz(questionsArray) {
+    currentQuestions = questionsArray;
     currentQuestionIndex = 0;
     score = 0;
+    incorrectAnswers = 0;
     nextButton.innerHTML = "Next";
     nextButton.style.display = "none";
     showQuestion();
+    updateScores();
 }
 
 // Function to display the current question
 function showQuestion() {
     resetState();
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = currentQuestions[currentQuestionIndex];
     const questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Flag" />`;
 
@@ -124,18 +172,21 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct === "true";
     if (correct) {
         score++;
+    } else {
+        incorrectAnswers++;
     }
     Array.from(answerButtons.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
     setTimeout(() => {
-        if (currentQuestionIndex < questions.length - 1) {
+        if (currentQuestionIndex < currentQuestions.length - 1) {
             nextQuestion();
         } else {
-            alert(`Quiz finished! Your score is ${score}/${questions.length}.`);
-            startQuiz();
+            alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
+            startQuiz(currentQuestions);
         }
     }, 2000); // 2 seconds delay
+    updateScores();
 }
 
 // Function to set the status class of an element
@@ -158,4 +209,10 @@ function clearStatusClass(element) {
 function nextQuestion() {
     currentQuestionIndex++;
     showQuestion();
+}
+
+// Function to update the displayed scores
+function updateScores() {
+    document.getElementById("score").textContent = score;
+    document.getElementById("Incorrect").textContent = incorrectAnswers;
 }
