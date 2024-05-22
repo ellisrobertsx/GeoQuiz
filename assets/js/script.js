@@ -94,12 +94,61 @@ const flagHardQuestions = [
     }
 ];
 
+const locationEasyQuestions = [
+    {
+        imagePath: 'assets/images/locations1.jpg',
+        answers: [
+            { text: "Texas", correct: false },
+            { text: "California", correct: false },
+            { text: "New York", correct: false },
+            { text: "Washington DC", correct: true }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations2.jpg',
+        answers: [
+            { text: "Abu Dhabi", correct: false },
+            { text: "Dubai", correct: true },
+            { text: "Singapore", correct: false },
+            { text: "Qatar", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations3.jpg',
+        answers: [
+            { text: "Newcastle", correct: false },
+            { text: "Manchester", correct: false },
+            { text: "London", correct: true },
+            { text: "Leeds", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations4.jpg',
+        answers: [
+            { text: "Toronto", correct: true },
+            { text: "Vancouver", correct: false },
+            { text: "Montreal", correct: false },
+            { text: "New York", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations5.jpg',
+        answers: [
+            { text: "Brisbane", correct: false },
+            { text: "Melbourne", correct: false },
+            { text: "Sydney", correct: true },
+            { text: "Perth", correct: false }
+        ]
+    }
+];
+
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const quizContainer = document.getElementById("quiz-container");
 const flagEasyButton = document.querySelector(".flag-easy");
 const flagHardButton = document.querySelector(".flag-hard");
+const locationsEasyButton = document.querySelector(".locations-easy");
 const initialContent = document.getElementById("initial-content");
 const locationsContent = document.querySelector(".locations");
 const scoreArea = document.querySelector(".score-area");
@@ -127,6 +176,15 @@ flagHardButton.addEventListener("click", () => {
     startQuiz(flagHardQuestions);
 });
 
+// Event listener for locations easy button
+locationsEasyButton.addEventListener("click", () => {
+    initialContent.classList.add("hidden");
+    locationsContent.classList.add("hidden"); // Hide locations div
+    quizContainer.classList.remove("hidden");
+    scoreArea.classList.remove("hidden");
+    startQuiz(locationEasyQuestions);
+});
+
 // Function to start the quiz
 function startQuiz(questionsArray) {
     currentQuestions = questionsArray;
@@ -144,7 +202,7 @@ function showQuestion() {
     resetState();
     const currentQuestion = currentQuestions[currentQuestionIndex];
     const questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Flag" />`;
+    questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Question Image" />`;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -216,3 +274,4 @@ function updateScores() {
     document.getElementById("score").textContent = score;
     document.getElementById("Incorrect").textContent = incorrectAnswers;
 }
+
