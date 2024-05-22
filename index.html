@@ -16,7 +16,7 @@
 <body>
     <h1 class="header">GeoQuiz</h1>
 
-    <div class="flags hidden">
+    <div id="initial-content" class="flags">
         <h3 class="guessflag">Play Guess The Flag!</h3>
         <div class="flag-image"></div>
         <div class="flag-buttons">
@@ -33,16 +33,10 @@
         </div>
     </div>
 
-    <div id="quiz-container">
+    <div id="quiz-container" class="hidden">
         <h1>Name the flag</h1>
         <div id="question"></div>
-        <div id="answer-buttons">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
-        </div>
-
+        <div id="answer-buttons"></div>
         <button id="next-btn">Next Question</button>
     </div>
 
@@ -50,9 +44,6 @@
         <p class="scores">Correct Answers <span id="score">0</span></p>
         <p class="scores">Incorrect Answers <span id="Incorrect">0</span></p>
     </div>
-
-    
-
 
     <script src="assets/js/script.js"></script>
 </body>
