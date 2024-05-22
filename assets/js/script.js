@@ -60,6 +60,8 @@ const nextButton = document.getElementById("next-btn");
 const quizContainer = document.getElementById("quiz-container");
 const flagEasyButton = document.querySelector(".flag-easy");
 const initialContent = document.getElementById("initial-content");
+const flagHardButton = document.querySelector(".flag-hard");
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -68,6 +70,14 @@ flagEasyButton.addEventListener("click", () => {
     initialContent.classList.add("hidden");
     quizContainer.classList.remove("hidden");
     startQuiz();
+
+
+    flagHardButton.addEventListener("click", () => {
+        initialContent.classList.add("hidden");
+        quizContainer.classList.remove("hidden");
+        startQuiz();
+
+    })
 });
 
 function startQuiz() {
