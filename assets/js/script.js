@@ -142,11 +142,60 @@ const locationEasyQuestions = [
     }
 ];
 
+const locationHardQuestions = [
+    {
+        imagePath: 'assets/images/locations6.jpg',
+        answers: [
+            { text: "London", correct: false },
+            { text: "Edinburgh", correct: true },
+            { text: "Glasgow", correct: false },
+            { text: "Aberdeen", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations7.jpg',
+        answers: [
+            { text: "Santorini", correct: true },
+            { text: "Oia", correct: false },
+            { text: "Santo Wines", correct: false },
+            { text: "Karterados", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations8.jpg',
+        answers: [
+            { text: "Banff", correct: false },
+            { text: "Toronto", correct: false },
+            { text: "Vancouver", correct: false },
+            { text: "Ontario", correct: true }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations9.jpg',
+        answers: [
+            { text: "Mexico City", correct: false },
+            { text: "Yucatan", correct: true },
+            { text: "Puebla", correct: false },
+            { text: "Tijuana", correct: false }
+        ]
+    },
+    {
+        imagePath: 'assets/images/locations10.jpg',
+        answers: [
+            { text: "Seville", correct: false },
+            { text: "Madrid", correct: false },
+            { text: "Barcelona", correct: true },
+            { text: "Valencia", correct: false }
+        ]
+    }
+];
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const flagEasyButton = document.querySelector(".flag-easy");
     const flagHardButton = document.querySelector(".flag-hard");
     const locationsEasyButton = document.querySelector(".locations-easy");
+    const locationsHardButton = document.querySelector(".locations-hard");
     const initialContent = document.getElementById("initial-content");
     const locationsContent = document.querySelector(".locations");
     const quizContainer = document.getElementById("quiz-container");
@@ -155,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const answerButtons = document.getElementById("answer-buttons");
     const nextButton = document.getElementById("next-btn");
     const correctScore = document.getElementById("score");
-    const incorrectScore = document.getElementById("Incorrect");
+    const incorrectScore = document.getElementById("incorrect");
     const stopQuizButton = document.getElementById("stop-quiz");
 
     let currentQuestionIndex = 0;
@@ -175,11 +224,15 @@ document.addEventListener("DOMContentLoaded", () => {
         startQuiz(locationEasyQuestions);
     });
 
+    locationsHardButton.addEventListener("click", () => {
+        startQuiz(locationHardQuestions);
+    });
+
     function startQuiz(questionsArray) {
         initialContent.classList.add("hidden");
         locationsContent.classList.add("hidden");
         quizContainer.classList.remove("hidden");
-        scoreArea.style.display = "block !important"; 
+        scoreArea.style.display = "block"; 
         stopQuizButton.style.display = "inline-block";
         currentQuestions = questionsArray;
         currentQuestionIndex = 0;
@@ -225,10 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(answerButtons.children).forEach(button => {
             setStatusClass(button, button.dataset.correct);
         });
-        
-        // Update scores immediately after the user selects an answer
-        updateScores();
-        
         setTimeout(() => {
             if (currentQuestionIndex < currentQuestions.length - 1) {
                 nextQuestion();
@@ -236,7 +285,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
                 startQuiz(currentQuestions);
             }
-        }, 2000); // 2 seconds delay
+        }, 1000); // 1 second delay
+        updateScores(); // Update scores after selecting an answer
+    }
+    
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < currentQuestions.length) {
+            showQuestion();
+        } else {
+            alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
+            startQuiz(currentQuestions);
+        }
+        updateScores(); // Update scores after moving to the next question
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        // Your existing code for quiz setup and button event listeners...
+    
+        // Remaining code...
+    });
+    
+    function nextQuestion() {
+        currentQuestionIndex++;
+        // Check if there are more questions
+        if (currentQuestionIndex < currentQuestions.length) {
+            showQuestion();
+        } else {
+            // If no more questions, finish the quiz
+            alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
+            startQuiz(currentQuestions);
+        }
     }
 
     function setStatusClass(element, correct) {
