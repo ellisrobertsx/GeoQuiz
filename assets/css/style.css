@@ -82,10 +82,12 @@ body {
 
 .score-area {
     margin-bottom: 20px;
+    text-align: center; /* Center the scores horizontally */
 }
 
 .scores {
     margin: 5px;
+    font-size: large;
 }
 
 #quiz-container {

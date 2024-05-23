@@ -142,136 +142,122 @@ const locationEasyQuestions = [
     }
 ];
 
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
-const quizContainer = document.getElementById("quiz-container");
-const flagEasyButton = document.querySelector(".flag-easy");
-const flagHardButton = document.querySelector(".flag-hard");
-const locationsEasyButton = document.querySelector(".locations-easy");
-const initialContent = document.getElementById("initial-content");
-const locationsContent = document.querySelector(".locations");
-const scoreArea = document.querySelector(".score-area");
 
-let currentQuestionIndex = 0;
-let currentQuestions = [];
-let score = 0;
-let incorrectAnswers = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    const flagEasyButton = document.querySelector(".flag-easy");
+    const flagHardButton = document.querySelector(".flag-hard");
+    const locationsEasyButton = document.querySelector(".locations-easy");
+    const initialContent = document.getElementById("initial-content");
+    const locationsContent = document.querySelector(".locations");
+    const quizContainer = document.getElementById("quiz-container");
+    const scoreArea = document.querySelector(".score-area");
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+    const correctScore = document.getElementById("score");
+    const incorrectScore = document.getElementById("Incorrect");
 
-// Event listener for flag easy button
-flagEasyButton.addEventListener("click", () => {
-    initialContent.classList.add("hidden");
-    locationsContent.classList.add("hidden"); // Hide locations div
-    quizContainer.classList.remove("hidden");
-    scoreArea.classList.remove("hidden");
-    startQuiz(flagEasyQuestions);
-});
+    let currentQuestionIndex = 0;
+    let currentQuestions = [];
+    let score = 0;
+    let incorrectAnswers = 0;
 
-// Event listener for flag hard button
-flagHardButton.addEventListener("click", () => {
-    initialContent.classList.add("hidden");
-    locationsContent.classList.add("hidden"); // Hide locations div
-    quizContainer.classList.remove("hidden");
-    scoreArea.classList.remove("hidden");
-    startQuiz(flagHardQuestions);
-});
+    flagEasyButton.addEventListener("click", () => {
+        startQuiz(flagEasyQuestions);
+    });
 
-// Event listener for locations easy button
-locationsEasyButton.addEventListener("click", () => {
-    initialContent.classList.add("hidden");
-    locationsContent.classList.add("hidden"); // Hide locations div
-    quizContainer.classList.remove("hidden");
-    scoreArea.classList.remove("hidden");
-    startQuiz(locationEasyQuestions);
-});
+    flagHardButton.addEventListener("click", () => {
+        startQuiz(flagHardQuestions);
+    });
 
-// Function to start the quiz
-function startQuiz(questionsArray) {
-    currentQuestions = questionsArray;
-    currentQuestionIndex = 0;
-    score = 0;
-    incorrectAnswers = 0;
-    nextButton.innerHTML = "Next";
-    nextButton.style.display = "none";
-    showQuestion();
-    updateScores();
-}
+    locationsEasyButton.addEventListener("click", () => {
+        startQuiz(locationEasyQuestions);
+    });
 
-// Function to display the current question
-function showQuestion() {
-    resetState();
-    const currentQuestion = currentQuestions[currentQuestionIndex];
-    const questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Question Image" />`;
+    function startQuiz(questionsArray) {
+        initialContent.classList.add("hidden");
+        locationsContent.classList.add("hidden");
+        quizContainer.classList.remove("hidden");
+        scoreArea.style.display = "block !important"; // Add this line
+        currentQuestions = questionsArray;
+        currentQuestionIndex = 0;
+        score = 0;
+        incorrectAnswers = 0;
+        nextButton.style.display = "none";
+        showQuestion();
+        updateScores();
+    }
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
+    function showQuestion() {
+        resetState();
+        const currentQuestion = currentQuestions[currentQuestionIndex];
+        questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Question Image" />`;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+            answerButtons.appendChild(button);
+        });
+    }
+
+    function resetState() {
+        nextButton.style.display = "none";
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
         }
-        button.addEventListener("click", selectAnswer);
-        answerButtons.appendChild(button);
-    });
-}
-
-// Function to reset the state of the quiz
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
     }
-}
 
-// Function to handle the selection of an answer
-function selectAnswer(e) {
-    const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct === "true";
-    if (correct) {
-        score++;
-    } else {
-        incorrectAnswers++;
-    }
-    Array.from(answerButtons.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct);
-    });
-    setTimeout(() => {
-        if (currentQuestionIndex < currentQuestions.length - 1) {
-            nextQuestion();
+    function selectAnswer(e) {
+        const selectedButton = e.target;
+        const correct = selectedButton.dataset.correct === "true";
+        if (correct) {
+            score++;
         } else {
-            alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
-            startQuiz(currentQuestions);
+            incorrectAnswers++;
         }
-    }, 2000); // 2 seconds delay
-    updateScores();
-}
-
-// Function to set the status class of an element
-function setStatusClass(element, correct) {
-    clearStatusClass(element);
-    if (correct) {
-        element.classList.add("correct");
-    } else {
-        element.classList.add("wrong");
+        Array.from(answerButtons.children).forEach(button => {
+            setStatusClass(button, button.dataset.correct);
+        });
+        
+        // Update scores immediately after the user selects an answer
+        updateScores();
+        
+        setTimeout(() => {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                nextQuestion();
+            } else {
+                alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
+                startQuiz(currentQuestions);
+            }
+        }, 2000); // 2 seconds delay
     }
-}
 
-// Function to clear the status class of an element
-function clearStatusClass(element) {
-    element.classList.remove("correct");
-    element.classList.remove("wrong");
-}
+    function setStatusClass(element, correct) {
+        clearStatusClass(element);
+        if (correct) {
+            element.classList.add("correct");
+        } else {
+            element.classList.add("wrong");
+        }
+    }
 
-// Function to move to the next question
-function nextQuestion() {
-    currentQuestionIndex++;
-    showQuestion();
-}
+    function clearStatusClass(element) {
+        element.classList.remove("correct");
+        element.classList.remove("wrong");
+    }
 
-// Function to update the displayed scores
-function updateScores() {
-    document.getElementById("score").textContent = score;
-    document.getElementById("Incorrect").textContent = incorrectAnswers;
-}
+    function nextQuestion() {
+        currentQuestionIndex++;
+        showQuestion();
+    }
 
+    function updateScores() {
+        correctScore.textContent = score;
+        incorrectScore.textContent = incorrectAnswers;
+    }
+});
