@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.getElementById("next-btn");
     const correctScore = document.getElementById("score");
     const incorrectScore = document.getElementById("Incorrect");
+    const stopQuizButton = document.getElementById("stop-quiz");
 
     let currentQuestionIndex = 0;
     let currentQuestions = [];
@@ -178,7 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
         initialContent.classList.add("hidden");
         locationsContent.classList.add("hidden");
         quizContainer.classList.remove("hidden");
-        scoreArea.style.display = "block !important"; // Add this line
+        scoreArea.style.display = "block !important"; 
+        stopQuizButton.style.display = "inline-block";
         currentQuestions = questionsArray;
         currentQuestionIndex = 0;
         score = 0;
