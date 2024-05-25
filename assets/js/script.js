@@ -189,8 +189,6 @@ const locationHardQuestions = [
         ]
     }
 ];
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const flagEasyButton = document.querySelector(".flag-easy");
     const flagHardButton = document.querySelector(".flag-hard");
@@ -212,6 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     let incorrectAnswers = 0;
 
+    // Initially hide the quiz container and the "Stop Quiz" button
+    quizContainer.classList.add("hidden");
+    stopQuizButton.classList.add("hidden");
+
     flagEasyButton.addEventListener("click", () => {
         startQuiz(flagEasyQuestions);
     });
@@ -229,11 +231,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function startQuiz(questionsArray) {
+        // Hide the initial content and display the quiz container
         initialContent.classList.add("hidden");
         locationsContent.classList.add("hidden");
         quizContainer.classList.remove("hidden");
-        scoreArea.style.display = "block"; 
-        stopQuizButton.style.display = "inline-block";
+        scoreArea.style.display = "block";
+        // Show the "Stop Quiz" button
+        stopQuizButton.classList.remove("hidden");
         currentQuestions = questionsArray;
         currentQuestionIndex = 0;
         score = 0;
@@ -242,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showQuestion();
         updateScores();
     }
+
 
     function showQuestion() {
         resetState();
@@ -276,7 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
             incorrectAnswers++;
         }
         Array.from(answerButtons.children).forEach(button => {
-            setStatusClass(button, button.dataset.correct);
+            button.disabled = true; // Disable buttons after selection
+            setStatusClass(button, button.dataset.correct === "true");
         });
         setTimeout(() => {
             if (currentQuestionIndex < currentQuestions.length - 1) {
@@ -288,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000); // 1 second delay
         updateScores(); // Update scores after selecting an answer
     }
-    
+
     function nextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex < currentQuestions.length) {
@@ -298,24 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
             startQuiz(currentQuestions);
         }
         updateScores(); // Update scores after moving to the next question
-    }
-    
-    document.addEventListener("DOMContentLoaded", () => {
-        // Your existing code for quiz setup and button event listeners...
-    
-        // Remaining code...
-    });
-    
-    function nextQuestion() {
-        currentQuestionIndex++;
-        // Check if there are more questions
-        if (currentQuestionIndex < currentQuestions.length) {
-            showQuestion();
-        } else {
-            // If no more questions, finish the quiz
-            alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
-            startQuiz(currentQuestions);
-        }
     }
 
     function setStatusClass(element, correct) {
@@ -330,11 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function clearStatusClass(element) {
         element.classList.remove("correct");
         element.classList.remove("wrong");
-    }
-
-    function nextQuestion() {
-        currentQuestionIndex++;
-        showQuestion();
     }
 
     function updateScores() {
