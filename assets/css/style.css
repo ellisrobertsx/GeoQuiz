@@ -199,7 +199,13 @@ display: none;
     height: 100%;
    
 }
+.hidden-text {
+    visibility: hidden;
+}
 
+/*Larger devices (laptops and desktops 992px and up )*/
+@media screen and (min-width:992px) {
 
+    .
 
-
+}

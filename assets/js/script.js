@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
         const currentQuestion = currentQuestions[currentQuestionIndex];
         questionElement.innerHTML = `<img src="${currentQuestion.imagePath}" alt="Question Image" />`;
-
+    
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
-            button.innerHTML = answer.text;
+            button.innerHTML = `<span class="answer-text">${answer.text}</span>`;
             button.classList.add("btn");
             if (answer.correct) {
                 button.dataset.correct = answer.correct;
@@ -280,10 +280,16 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             incorrectAnswers++;
         }
+    
+        // Hide the text of all wrong answers
         Array.from(answerButtons.children).forEach(button => {
-            button.disabled = true; // Disable buttons after selection
+            if (button.dataset.correct !== "true") {
+                button.querySelector('.answer-text').classList.add("hidden-text"); // Hide text of incorrect answers
+            }
+            button.disabled = true; // Disable all buttons after selection
             setStatusClass(button, button.dataset.correct === "true");
         });
+    
         setTimeout(() => {
             if (currentQuestionIndex < currentQuestions.length - 1) {
                 nextQuestion();
@@ -292,6 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 startQuiz(currentQuestions);
             }
         }, 1000); // 1 second delay
+    
         updateScores(); // Update scores after selecting an answer
     }
 
