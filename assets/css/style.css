@@ -16,6 +16,7 @@ body {
     text-align: center;
     font-size: xxx-large;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .hidden {
@@ -203,9 +204,35 @@ display: none;
     visibility: hidden;
 }
 
+/*Media query: tablets and larger (768px and up*/
+@media screen and (min-width:768px) {
+    #question img {
+        height: 350px; /* Set a fixed height for all images */
+        width: 500px; /* Set a width relative to the parent container */
+        max-width: 500px;
+    }
+
+    .flag-image, .location-image {
+        height: 350px; /* Set a fixed height for all images */
+        width: 500px; /* Set a width relative to the parent container */
+        max-width: 500px;
+    }
+
+
+}
+
+
 /*Larger devices (laptops and desktops 992px and up )*/
 @media screen and (min-width:992px) {
+    
+    #question img {
+        height: 330px; /* Set a fixed height for all images */
+        width: 500px; /* Set a width relative to the parent container */
+        max-width: 500px;
+        
+    }
 
-    .
+
+   
 
 }

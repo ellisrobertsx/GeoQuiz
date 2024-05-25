@@ -275,33 +275,37 @@ document.addEventListener("DOMContentLoaded", () => {
     function selectAnswer(e) {
         const selectedButton = e.target;
         const correct = selectedButton.dataset.correct === "true";
-        if (correct) {
+        const answer = currentQuestions[currentQuestionIndex].answers.find(ans => ans.text === selectedButton.innerText);
+        
+        // Update the score based on the correctness of the selected answer
+        if (answer.correct) {
             score++;
         } else {
             incorrectAnswers++;
         }
-    
-        // Hide the text of all wrong answers
+        
+        // Disable buttons after selection
         Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct !== "true") {
-                button.querySelector('.answer-text').classList.add("hidden-text"); // Hide text of incorrect answers
-            }
-            button.disabled = true; // Disable all buttons after selection
+            button.disabled = true;
             setStatusClass(button, button.dataset.correct === "true");
         });
-    
+        
+        // Check if all questions are answered
         setTimeout(() => {
             if (currentQuestionIndex < currentQuestions.length - 1) {
                 nextQuestion();
             } else {
+                // Show score after all questions are answered
                 alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
-                startQuiz(currentQuestions);
+                // Reset the quiz
+                resetQuiz();
             }
         }, 1000); // 1 second delay
-    
-        updateScores(); // Update scores after selecting an answer
+        
+        // Update scores after selecting an answer
+        updateScores();
     }
-
+    
     function nextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex < currentQuestions.length) {
@@ -326,7 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
         element.classList.remove("correct");
         element.classList.remove("wrong");
     }
-
     function updateScores() {
         correctScore.textContent = score;
         incorrectScore.textContent = incorrectAnswers;
