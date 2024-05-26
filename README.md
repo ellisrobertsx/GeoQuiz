@@ -4,7 +4,7 @@
 ## Introduction
 
 GeoQuiz is a fun and educational web application where users can play two types of geography-based quizzes: "Guess The Flag" and "Guess The City". Test your knowledge of world flags and cities in an engaging and interactive way!
-
+![Responsice Mockup](https://ui.dev/amiresponsive?url=https://ellisrobertsx.github.io/GeoQuiz/)
 ## Table of Contents
 
 - [Planning Stage](#Planning Stage)
