@@ -17,6 +17,12 @@ body {
     font-size: xxx-large;
     margin-bottom: 20px;
     margin-top: 10px;
+    
+}
+.header-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the color from the parent element */
+    display: inline-block; /* Ensure it behaves like a block-level element for layout */
 }
 
 .hidden {
