@@ -1,39 +1,48 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GeoQuiz
 
-Welcome,
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Introduction
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+GeoQuiz is a fun and educational web application where users can play two types of geography-based quizzes: "Guess The Flag" and "Guess The City". Test your knowledge of world flags and cities in an engaging and interactive way!
 
-## Codeanywhere Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- [Planning Stage](#Planning Stage)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-`python3 -m http.server`
+## Features and Elements Used on Each Page
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### Home Page (`index.html`)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+- **Header**: Displays the project name and serves as a link to navigate back to the home page.
+- **Game Selection Section**: Allows users to choose between "Guess The Flag" and "Guess The City" quizzes.
+- **Difficulty Selection**: Enables users to choose between Easy and Hard difficulty levels.
+- **Flag/City Image Display**: Shows the image of the flag or city to be guessed.
+- **Answer Options**: Provides clickable buttons for users to select their answers.
+- **Score Tracking**: Displays the current score and tracks correct and incorrect answers.
 
-`http_server`
+### Quiz Pages (`flag.html`, `city.html`)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- **Header**: Similar to the home page header, provides navigation back to the home page.
+- **Question Display**: Shows the question prompt.
+- **Answer Options**: Provides clickable buttons for users to select their answers.
+- **Score Tracking**: Similar to the home page, displays the current score and tracks correct and incorrect answers.
+- **Next Question Button**: Allows users to proceed to the next question.
+- **Stop Quiz Button**: Allows users to stop the quiz and return to the home page.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Planning Stage
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+During the planning stage, the following steps were undertaken:
 
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+1. **Project Ideation**: Brainstormed ideas for a geography-themed quiz application.
+2. **Feature Specification**: Defined the main features of the application, including quiz types, difficulty levels, and scoring system.
+3. **Wireframing**: Created wireframes to visualize the layout and design of each page.
+4. **Resource Gathering**: Gathered resources such as flag and city images for the quizzes.
+5. **Technology Selection**: Chose appropriate technologies for front-end development, including HTML, CSS, and JavaScript.
+6. **Project Setup**: Set up the project structure and version control system using Git.
 
 ---
-
-Happy coding!
