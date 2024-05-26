@@ -4,7 +4,7 @@
 ## Introduction
 
 GeoQuiz is a fun and educational web application where users can play two types of geography-based quizzes: "Guess The Flag" and "Guess The City". Test your knowledge of world flags and cities in an engaging and interactive way!
-![Responsice Mockup](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/geoquiz%20screenshot.png)
+![Responsive Mockup](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/geoquiz%20screenshot.png)
 ## Contents
 - [Home Page](#Home-page)
 - [Quiz Pages](#Quiz-pages)
@@ -48,7 +48,7 @@ During the planning stage, the following steps were undertaken:
 ## Guess The Flag 
 [Back to contents]
 (#Contents)
-[guessflag](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
+![guessflag](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -58,7 +58,7 @@ During the planning stage, the following steps were undertaken:
 
 ## Guess the City
 [Back to contents](#Contents)
-[guesscity](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
+![guesscity](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -67,7 +67,7 @@ During the planning stage, the following steps were undertaken:
 
 ## Testing 
 [Back to contents](#Contents) 
-[lighthouse](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
+![lighthouse](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
 
 1. **CSS Validator**: No CSS errors found once tested 
 2. **HTML Validator**: No HTML errors found once tested
