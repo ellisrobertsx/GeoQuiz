@@ -46,7 +46,9 @@ During the planning stage, the following steps were undertaken:
 
 ---
 ## Guess The Flag 
-[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
+[Back to contents]
+(#Contents)
+[guessflag](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -55,7 +57,8 @@ During the planning stage, the following steps were undertaken:
 
 
 ## Guess the City
-[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
+[Back to contents](#Contents)
+[guesscity](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -63,7 +66,8 @@ During the planning stage, the following steps were undertaken:
 4. **Interactions**:Interactive interface with clickable buttons for selecting answers.
 
 ## Testing 
-[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
+[Back to contents](#Contents) 
+[lighthouse](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
 
 1. **CSS Validator**: No CSS errors found once tested 
 2. **HTML Validator**: No HTML errors found once tested
