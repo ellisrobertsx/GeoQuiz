@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
         locationsContent.classList.add("hidden");
         quizContainer.classList.remove("hidden");
         scoreArea.style.display = "block";
-        // Show the "Stop Quiz" button
+    
         stopQuizButton.classList.remove("hidden");
         currentQuestions = questionsArray;
         currentQuestionIndex = 0;
@@ -277,32 +277,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const correct = selectedButton.dataset.correct === "true";
         const answer = currentQuestions[currentQuestionIndex].answers.find(ans => ans.text === selectedButton.innerText);
         
-        // Update the score based on the correctness of the selected answer
+       
         if (answer.correct) {
             score++;
         } else {
             incorrectAnswers++;
         }
         
-        // Disable buttons after selection
+        
         Array.from(answerButtons.children).forEach(button => {
             button.disabled = true;
             setStatusClass(button, button.dataset.correct === "true");
         });
         
-        // Check if all questions are answered
+        
         setTimeout(() => {
             if (currentQuestionIndex < currentQuestions.length - 1) {
                 nextQuestion();
             } else {
-                // Show score after all questions are answered
+                
                 alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
-                // Reset the quiz
+                
                 resetQuiz();
             }
-        }, 1000); // 1 second delay
+        }, 1000); 
         
-        // Update scores after selecting an answer
+      
         updateScores();
     }
     
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(`Quiz finished! Your score is ${score}/${currentQuestions.length}.`);
             startQuiz(currentQuestions);
         }
-        updateScores(); // Update scores after moving to the next question
+        updateScores(); 
     }
 
     function setStatusClass(element, correct) {
