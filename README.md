@@ -5,7 +5,7 @@
 
 GeoQuiz is a fun and educational web application where users can play two types of geography-based quizzes: "Guess The Flag" and "Guess The City". Test your knowledge of world flags and cities in an engaging and interactive way!
 ![Responsice Mockup](https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/geoquiz%20screenshot.png)
-## Table of Contents
+## Contents
 - [Home Page](#Home-page)
 - [Quiz Pages](#Quiz-pages)
 - [Planning Stage](#Planning-Stage)
@@ -18,7 +18,7 @@ GeoQuiz is a fun and educational web application where users can play two types 
 
 
 ### Home Page (`index.html`)
-[Back to contents](#Tabele-of-Contents)
+[Back to contents](#Contents)
 - **Header**: Displays the project name and serves as a link to navigate back to the home page.
 - **Game Selection Section**: Allows users to choose between "Guess The Flag" and "Guess The City" quizzes.
 - **Difficulty Selection**: Enables users to choose between Easy and Hard difficulty levels.
@@ -27,7 +27,7 @@ GeoQuiz is a fun and educational web application where users can play two types 
 - **Score Tracking**: Displays the current score and tracks correct and incorrect answers.
 
 ### Quiz Pages (`flag.html`, `city.html`)
-[Back to contents]
+[Back to contents](#Contents)
 - **Header**: Similar to the home page header, provides navigation back to the home page.
 - **Question Display**: Shows the question prompt.
 - **Answer Options**: Provides clickable buttons for users to select their answers.
@@ -35,7 +35,7 @@ GeoQuiz is a fun and educational web application where users can play two types 
 - **Stop Quiz Button**: Allows users to stop the quiz and return to the home page.
 
 ## Planning Stage
-[Back to contents]
+[Back to contents](#Contents)
 During the planning stage, the following steps were undertaken:
 
 1. **Project Ideation**: Brainstormed ideas for a geography-themed quiz application.
@@ -46,7 +46,7 @@ During the planning stage, the following steps were undertaken:
 
 ---
 ## Guess The Flag 
-[Back to contents](#contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
+[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guesstheflag.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -55,7 +55,7 @@ During the planning stage, the following steps were undertaken:
 
 
 ## Guess the City
-[Back to contents](#contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
+[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/guessthecity.png)
 
 1. **Questions**: 5 x easy and hard flags with multiple choice questions. 
 2. **Feedback**: Immediate feedback on wether the question is correct or incorrect 
@@ -63,7 +63,7 @@ During the planning stage, the following steps were undertaken:
 4. **Interactions**:Interactive interface with clickable buttons for selecting answers.
 
 ## Testing 
-[Back to contents](#contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
+[Back to contents](#Contents)(https://github.com/ellisrobertsx/GeoQuiz/blob/main/assets/images/readmeimages/lighthouse.geo.png)
 
 1. **CSS Validator**: No CSS errors found once tested 
 2. **HTML Validator**: No HTML errors found once tested
@@ -73,7 +73,7 @@ During the planning stage, the following steps were undertaken:
 
 
 ## Credits 
-[Credits](#contents)
+[Back to contents](#Contents)
 - Code Institues course context
 - Font Awesome
 - Pexels
@@ -85,11 +85,11 @@ During the planning stage, the following steps were undertaken:
 - Codeburst 
 
 ## Media
-[Media](#contents)
+[Back to contents](#Contents)
 - All media images are from Pexels and Pixabay
 
 ## Deployment
-[Deployment](#contents)
+[Back to contents](#Contents)
  - In the GitHub repository, navigate to the Settings tab
   - From the source section drop-down menu, select the Master Branch
   - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
