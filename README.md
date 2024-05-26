@@ -12,7 +12,7 @@ GeoQuiz is a fun and educational web application where users can play two types 
 - [Guess The Flag](#Guess-the-flag)
 - [Guess The City](#Guess-the-city)
 - [Testing](#Testing)
-- [Credits](#contact)
+- [Credits](#credits)
 - [Media](#Media)
 - [Deployment](#Deployment)
 
