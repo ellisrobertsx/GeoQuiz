@@ -38,7 +38,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: 250px; /* Adjust height to fit within the viewport */
-    width: 90%;
+    width: 96%;
     max-width: 600px; /* Ensure the image fits within the device width */
     margin-left: 2px;
     margin-right: 2px;
@@ -204,6 +204,12 @@ display: none;
     visibility: hidden;
 }
 
+.container {
+    width:98%;
+}
+
+
+
 /*Media query: tablets and larger (768px and up*/
 @media screen and (min-width:768px) {
     #question img {
@@ -225,14 +231,9 @@ display: none;
 /*Larger devices (laptops and desktops 992px and up )*/
 @media screen and (min-width:992px) {
     
-    #question img {
-        height: 330px; /* Set a fixed height for all images */
-        width: 500px; /* Set a width relative to the parent container */
-        max-width: 500px;
-        
+    .container {
+        display: flex;
     }
 
-
-   
 
 }
